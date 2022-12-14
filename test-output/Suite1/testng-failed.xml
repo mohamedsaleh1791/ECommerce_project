@@ -5,8 +5,8 @@
     <classes>
       <class name="org.example.ChromeBrowser">
         <methods>
+          <include name="loginWithValidData"/>
           <include name="setup"/>
-          <include name="validData"/>
           <include name="closeDriver"/>
         </methods>
       </class> <!-- org.example.ChromeBrowser -->

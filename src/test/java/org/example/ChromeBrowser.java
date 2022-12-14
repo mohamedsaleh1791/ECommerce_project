@@ -1,35 +1,45 @@
 package org.example;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
+import POM.LoginPage;
 
-/**
- * Unit test for simple App.
- */
+
+
 public class ChromeBrowser {
-    WebDriver driver = new ChromeDriver();
-    @BeforeTest
+    WebDriver driver = null;
+
+    @BeforeMethod
     public void setup() throws InterruptedException {
+        driver=new ChromeDriver();
         System.setProperty("webdriver.chrome.driver", "D:\\TestingAutomation\\Testing\\src\\resources\\chromedriver.exe");
         driver.manage().window().maximize();
         driver.get("https://www.noon.com/egypt-en/");
         Thread.sleep(300);
     }
     @Test
-    public void validData() {
-        driver.findElement(By.id("dd_header_signInOrUp")).click();
-        driver.findElement(By.id("emailInput")).sendKeys("xyz");
+    public void loginWithValidData() throws InterruptedException {
+        LoginPage loginPage=new LoginPage();
+        loginPage.signinBTN(driver).click();
+        loginPage.emailField(driver).sendKeys("qququju579@tmail3.com");
+        loginPage.passwordField(driver).sendKeys("Ms@12345");
+        loginPage.loginBTN(driver).click();
+        Thread.sleep(10000);//using long time due to low performance of website
+        Assert.assertTrue(loginPage.wishListLink(driver).getText().contains("Wishlist"));
     }
     @Test
-    public void inValidData() {
-
-        driver.findElement(By.id("dd_header_signInOrUp")).click();
-        driver.findElement(By.id("emailInput")).sendKeys("xyz");
+    public void loginWithInValidData() throws InterruptedException {
+        LoginPage loginPage=new LoginPage();
+        loginPage.signinBTN(driver).click();
+        loginPage.emailField(driver).sendKeys("Test");
+        loginPage.passwordField(driver).sendKeys("12345");
+        loginPage.loginBTN(driver).click();
+        Thread.sleep(10000);//using long time due to low performance of website
+//        Assert.assertTrue(loginPage.wishListLink(driver).getText().contains("Wishlist"));
     }
-    @AfterTest
+
+    @AfterMethod
     public void closeDriver(){
         driver.quit();
     }
