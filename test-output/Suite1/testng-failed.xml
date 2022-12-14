@@ -3,13 +3,13 @@
 <suite name="Failed suite [Suite1]" parallel="none">
   <test name="Regression1(failed)" parallel="none">
     <classes>
-      <class name="org.example.ChromeBrowser">
+      <class name="org.example.LoginTestScenario">
         <methods>
           <include name="loginWithValidData"/>
           <include name="setup"/>
           <include name="closeDriver"/>
         </methods>
-      </class> <!-- org.example.ChromeBrowser -->
+      </class> <!-- org.example.LoginTestScenario -->
     </classes>
   </test> <!-- Regression1(failed) -->
 </suite> <!-- Failed suite [Suite1] -->

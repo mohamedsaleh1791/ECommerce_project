@@ -7,10 +7,10 @@ import POM.LoginPage;
 
 
 
-public class ChromeBrowser {
+public class LoginTestScenario {
     WebDriver driver = null;
 
-    @BeforeMethod
+    @BeforeTest
     public void setup() throws InterruptedException {
         driver=new ChromeDriver();
         System.setProperty("webdriver.chrome.driver", "D:\\TestingAutomation\\Testing\\src\\resources\\chromedriver.exe");
@@ -25,21 +25,12 @@ public class ChromeBrowser {
         loginPage.emailField(driver).sendKeys("qququju579@tmail3.com");
         loginPage.passwordField(driver).sendKeys("Ms@12345");
         loginPage.loginBTN(driver).click();
-        Thread.sleep(10000);//using long time due to low performance of website
+        Thread.sleep(20000);//using long time due to low performance of website
         Assert.assertTrue(loginPage.wishListLink(driver).getText().contains("Wishlist"));
     }
-    @Test
-    public void loginWithInValidData() throws InterruptedException {
-        LoginPage loginPage=new LoginPage();
-        loginPage.signinBTN(driver).click();
-        loginPage.emailField(driver).sendKeys("Test");
-        loginPage.passwordField(driver).sendKeys("12345");
-        loginPage.loginBTN(driver).click();
-        Thread.sleep(10000);//using long time due to low performance of website
-//        Assert.assertTrue(loginPage.wishListLink(driver).getText().contains("Wishlist"));
-    }
 
-    @AfterMethod
+
+    @AfterTest
     public void closeDriver(){
         driver.quit();
     }

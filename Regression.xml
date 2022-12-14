@@ -1,13 +1,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" verbose="1" >
-    <test name="Regression1">
+<suite name="Regression Suite" verbose="1" >
+    <test name="Login Regression">
         <classes>
-            <class name="org.example.ChromeBrowser">
-                <methods>
-<!--                    <include name="validData"/>-->
-<!--                    <exclude name="inValidData"/>-->
-                </methods>
+            <class name="org.example.LoginTestScenario">
+            </class>
+
+        </classes>
+    </test>
+    <test name="Register Regression">
+        <classes>
+            <class name="org.example.RegisterTestScenario">
             </class>
 
         </classes>
