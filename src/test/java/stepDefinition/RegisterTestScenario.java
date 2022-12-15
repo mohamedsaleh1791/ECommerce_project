@@ -1,4 +1,4 @@
-package org.example;
+package stepDefinition;
 
 import POM.LoginPage;
 import POM.RegisterPage;

@@ -3,14 +3,14 @@
 <suite name="Regression Suite" verbose="1" >
     <test name="Login Regression">
         <classes>
-            <class name="org.example.LoginTestScenario">
+            <class name="stepDefinition.LoginTestScenario">
             </class>
 
         </classes>
     </test>
     <test name="Register Regression">
         <classes>
-            <class name="org.example.RegisterTestScenario">
+            <class name="stepDefinition.RegisterTestScenario">
             </class>
 
         </classes>
