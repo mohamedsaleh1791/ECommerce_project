@@ -5,36 +5,54 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class RegisterPage {
-    public WebElement signUpBTN(WebDriver driver){
-        By signUpLOC= By.className("sc-58e23d11-7");
-        WebElement signUpElement= driver.findElement(signUpLOC);
-        return signUpElement;
+    public WebElement registerBTN(WebDriver driver){
+        By registerLOC= By.className("register-button");
+        WebElement registerElement= driver.findElement(registerLOC);
+        return registerElement;
     }
-    public WebElement emailIP(WebDriver driver){
-        By emailLOC= By.id("emailInput");
-        WebElement emailElement= driver.findElement(emailLOC);
-        return emailElement;
+    public WebElement genderIP(WebDriver driver){
+        By genderLOC= By.id("gender-male");
+        WebElement genderElement= driver.findElement(genderLOC);
+        return genderElement;
     }
-    public WebElement passwordIP(WebDriver driver){
-        By passwordLOC= By.id("passwordInput");
-        WebElement passwordElement= driver.findElement(passwordLOC);
-        return passwordElement;
-    }
+
     public WebElement firstNameIP(WebDriver driver){
-        By firstNameLOC= By.id("firstNameInput");
+        By firstNameLOC= By.id("FirstName");
         WebElement firstNameElement= driver.findElement(firstNameLOC);
         return firstNameElement;
     }
     public WebElement lastNameIP(WebDriver driver){
-        By lastNameLOC= By.id("lastNameInput");
+        By lastNameLOC= By.id("LastName");
         WebElement lastNameElement= driver.findElement(lastNameLOC);
         return lastNameElement;
     }
+//    DOB
+    public WebElement emailIP(WebDriver driver){
+        By emailLOC= By.id("Email");
+        WebElement emailElement= driver.findElement(emailLOC);
+        return emailElement;
+    }
+    public WebElement passwordIP(WebDriver driver){
+        By passwordLOC= By.id("Password");
+        WebElement passwordElement= driver.findElement(passwordLOC);
+        return passwordElement;
+    }
+    public WebElement confirmPasswordIP(WebDriver driver){
+        By confirmPasswordLOC= By.id("ConfirmPassword");
+        WebElement confirmPasswordElement= driver.findElement(confirmPasswordLOC);
+        return confirmPasswordElement;
+    }
+
 
     public WebElement createAccount(WebDriver driver){
-        By createAccountLOC= By.id("login-submit");
+        By createAccountLOC= By.id("register-button");
         WebElement createAccountElement= driver.findElement(createAccountLOC);
         return createAccountElement;
+    }
+    public WebElement registationDone(WebDriver driver){
+        By registationDoneLOC= By.className("result");
+        WebElement registationDoneElement= driver.findElement(registationDoneLOC);
+        return registationDoneElement;
     }
 
 }
