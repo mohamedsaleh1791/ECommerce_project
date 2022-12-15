@@ -1,13 +1,10 @@
 package stepDefinition;
 
-import POM.LoginPage;
-import POM.RegisterPage;
+import Pages.LoginPage;
+import Pages.RegisterPage;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 
 public class RegisterTestScenario {
@@ -15,7 +12,7 @@ public class RegisterTestScenario {
     LoginPage loginPage=null;
     RegisterPage registerPage=null;
 
-    @BeforeTest
+
     public void setup() throws InterruptedException {
         driver=new ChromeDriver();
         System.setProperty("webdriver.chrome.driver", "D:\\TestingAutomation\\Testing\\src\\resources\\chromedriver.exe");
@@ -23,7 +20,7 @@ public class RegisterTestScenario {
         driver.get("https://www.noon.com/egypt-en/");
         Thread.sleep(300);
     }
-    @Test
+
     public void registerWithValidData() throws InterruptedException {
         loginPage=new LoginPage();
         registerPage=new RegisterPage();
@@ -37,11 +34,11 @@ public class RegisterTestScenario {
         registerPage.lastNameIP(driver).sendKeys("ali");
         registerPage.createAccount(driver).click();
         Thread.sleep(10000);//using long time due to low performance of website
-        Assert.assertTrue(loginPage.wishListLink(driver).getText().contains("Wishlist"));
+        Assert.assertTrue(loginPage.logoutLink(driver).getText().contains("Wishlist"));
     }
 
 
-    @AfterTest
+
     public void closeDriver(){
         driver.quit();
     }
