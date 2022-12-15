@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 
 public class RegisterTestScenario {
     WebDriver driver = null;
+    LoginPage loginPage=null;
+    RegisterPage registerPage=null;
 
     @BeforeTest
     public void setup() throws InterruptedException {
@@ -23,8 +25,8 @@ public class RegisterTestScenario {
     }
     @Test
     public void registerWithValidData() throws InterruptedException {
-        LoginPage loginPage=new LoginPage();
-        RegisterPage registerPage=new RegisterPage();
+        loginPage=new LoginPage();
+        registerPage=new RegisterPage();
         loginPage.signinBTN(driver).click();
         Thread.sleep(10000);
         registerPage.signUpBTN(driver).click();

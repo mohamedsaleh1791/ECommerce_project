@@ -9,6 +9,7 @@ import POM.LoginPage;
 
 public class LoginTestScenario {
     WebDriver driver = null;
+    LoginPage loginPage=null;
 
     @BeforeTest
     public void setup() throws InterruptedException {
@@ -20,7 +21,7 @@ public class LoginTestScenario {
     }
     @Test
     public void loginWithValidData() throws InterruptedException {
-        LoginPage loginPage=new LoginPage();
+        loginPage=new LoginPage();
         loginPage.signinBTN(driver).click();
         loginPage.emailField(driver).sendKeys("qququju579@tmail3.com");
         loginPage.passwordField(driver).sendKeys("Ms@12345");
